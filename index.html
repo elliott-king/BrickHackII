@@ -11,8 +11,8 @@
         var params = {
             // Request parameters
             "returnFaceId": "true",
-            "returnFaceLandmarks": "false",
-            "returnFaceAttributes": "{string}",
+            "returnFaceLandmarks": "false"
+           // "returnFaceAttributes": "{string}",
         };
       
         $.ajax({
@@ -24,10 +24,12 @@
             },
             type: "POST",
             // Request body
-            data: "{body}",
+            data: '{"url":"http://pixel.nymag.com/imgs/daily/intelligencer/2015/08/10/10-donald-trump-debate.w750.h560.2x.jpg"}',
         })
         .done(function(data) {
-            alert("success");
+            console.log(data);
+            document.write(data);
+            alert("succestaceyss");
         })
         .fail(function() {
             alert("error");
