@@ -6,6 +6,17 @@
     <script src="./canvas.js"></script>
 </head>
 <body>
+
+<h1>Password Identification</h1>
+<div class="holders">
+  <canvas id="photo" width="320" height="240"></canvas><img id="photoimg" width="320" height="240"/>
+  <div class="buttonholder">
+    <button id="sendbutton">Analyze Image</button>
+  </div>
+  <video id="camera" width="320" height="240"></video>
+  <div id="feedback"></div>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function () {
 
@@ -61,6 +72,8 @@ $(document).ready(function () {
          $("#photoimg").attr('src',url);
         console.log(url);
 
+        // console.log("'{"url":'url'}'");
+
         $(function() {
             var params = {
                 // Request parameters
@@ -79,7 +92,7 @@ $(document).ready(function () {
                 type: "POST",
                 // Request body
                 beforeSend: console.log(url),
-                data: '{"url":'url'}',
+                data: '{"url":' + url + '}',
             })
             .done(function(data) {
                 console.log(data);
