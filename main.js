@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>New Index</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="./canvas.js"></script>
-</head>
-<body>
-<script type="text/javascript">
 $(document).ready(function () {
 
     var c = document.getElementById('photo');
@@ -78,7 +69,6 @@ $(document).ready(function () {
                 },
                 type: "POST",
                 // Request body
-                beforeSend: console.log(url),
                 data: '{"url":'url'}',
             })
             .done(function(data) {
@@ -107,8 +97,4 @@ $(document).ready(function () {
     setInterval(showImage, 1);
 });
 
-</script>
 
-
-</body>
-</html>
