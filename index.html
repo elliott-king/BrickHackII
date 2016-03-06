@@ -9,7 +9,8 @@
 <script type="text/javascript">
 
 var id ="";
-var url = "http://pixel.nymag.com/imgs/daily/intelligencer/2015/08/10/10-donald-trump-debate.w750.h560.2x.jpg";
+var isEqual_bool = "";
+
 function detectFace(url) {
    
     var params = {
@@ -33,20 +34,17 @@ function detectFace(url) {
     })
     .done(function(data) {
         id = data[0].faceId; 
-        itemComplete();
+        detectComplete();
     })
     .fail(function() {
     alert("error");
     });
  };
 
- function itemComplete(){
-        console.log(id);
- }
 
 //gets a face ID and an array of face IDs, returns true if they're the same
 // else returns false
-function isEqual(faceId1, faceId2) {
+function isEqual(input_id, array_id) {
 
     $.ajax({
         url: "https://api.projectoxford.ai/face/v1.0/verify?",
@@ -62,18 +60,33 @@ function isEqual(faceId1, faceId2) {
         })
     .done(function(data) {
         //console.log(data);
-        console.log(data.isIdentical);
+        //console.log(data.isIdentical);
+        isEqual_bool = data.isIdentical;
+        equalComplete();
+
     })
     .fail(function() {
         alert("error");
     });
 };
 
+ function detectComplete(){
+        console.log(id);
+ }
+
+  function equalComplete(){
+        console.log(isEqual_bool);
+ }
+
+// to be populated
+var faceIds_array = ["\"3cc4e50c-e162-4470-a982-5a6870d8d637\"", "\"61bfd621-1ac6-4564-b739-1e5b08ac2558\""];
 var faceId1 = "\"3cc4e50c-e162-4470-a982-5a6870d8d637\"";
 var faceId2 = "\"61bfd621-1ac6-4564-b739-1e5b08ac2558\"";
 
+var url = "http://pixel.nymag.com/imgs/daily/intelligencer/2015/08/10/10-donald-trump-debate.w750.h560.2x.jpg";
+
 detectFace(url);
-isEqual(faceId1, faceId2);
+isEqual(faceId1, faceIds_array);
 
 </script>
 </body>
