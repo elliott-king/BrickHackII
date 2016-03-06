@@ -113,11 +113,12 @@ $(document).ready(function () {
         //     success: function (data) { 
         //         $("#feedback").text(JSON.stringify(data)) }
         // });
-    function showImage() {
-        context.drawImage(v, 0, 0, c.width, c.height);
-    }
+        function showImage() {
+            context.drawImage(v, 0, 0, c.width, c.height);
+        }
 
-    setInterval(showImage, 1);
+        setInterval(showImage, 1);
+    };
 };
 
 </script>
