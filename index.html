@@ -7,7 +7,9 @@
 <body>
 
 <script type="text/javascript">
-    $(function() {
+    function detectFace() {
+
+        var faceIds=[];
         var params = {
             // Request parameters
             "returnFaceId": "true",
@@ -27,14 +29,18 @@
             data: '{"url":"http://pixel.nymag.com/imgs/daily/intelligencer/2015/08/10/10-donald-trump-debate.w750.h560.2x.jpg"}',
         })
         .done(function(data) {
-            console.log(data);
-            document.write(data);
-            alert("succestaceyss");
+            console.log(data[0].faceId);    
         })
-        .fail(function() {
-            alert("error");
-        });
-    });
+     };
+
+detectFace();
+
+//gets a face ID and an array of face IDs, returns true if they're the same
+// else returns false
+function isEqual(){
+
+}
+
 </script>
 </body>
 </html>
